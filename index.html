@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jianing Lin — Neuroscience, Karolinska Institutet</title>
+<meta name="description" content="Jianing Lin, PhD candidate in clinical neuroscience at Karolinska Institutet, studying the neurovascular biology of amyotrophic lateral sclerosis (ALS).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFCFA;
+    --ink:#1B1B1A;
+    --muted:#6E6C66;
+    --faint:#9A988F;
+    --rule:#E4E2DB;
+    --accent:#1D3A57;     /* prussian navy */
+    --accent-soft:#2E5A82;
+    --maxw:760px;
+    --gap:clamp(2.4rem, 6vw, 4rem);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-size:1.0rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:clamp(2.2rem,5vw,4.5rem) clamp(1.3rem,5vw,2rem) 5rem;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;text-underline-offset:3px;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+  /* ---- header ---- */
+  header{margin-bottom:var(--gap);}
+  .name{
+    font-family:"Newsreader",Georgia,serif;
+    font-weight:500;
+    font-size:clamp(2.3rem,7vw,3.1rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    margin:0 0 .55rem;
+  }
+  .role{
+    font-family:"Newsreader",Georgia,serif;
+    font-style:italic;
+    font-size:clamp(1.05rem,3.2vw,1.25rem);
+    color:var(--muted);
+    margin:0 0 1.1rem;
+  }
+  .meta{
+    font-size:.9rem;
+    color:var(--muted);
+    line-height:1.55;
+  }
+  .meta .sep{color:var(--faint);padding:0 .5rem;}
+  nav{
+    margin-top:1.6rem;
+    padding-top:1.2rem;
+    border-top:1px solid var(--rule);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.4rem;
+    font-size:.82rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  nav a{color:var(--muted);}
+  nav a:hover{color:var(--accent);text-decoration:none;}
+
+  /* ---- sections ---- */
+  section{margin-bottom:var(--gap);scroll-margin-top:1.5rem;}
+  .eyebrow{
+    font-size:.74rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 1.4rem;
+  }
+  .lede{
+    font-family:"Newsreader",Georgia,serif;
+    font-size:clamp(1.15rem,3vw,1.4rem);
+    line-height:1.5;
+    color:var(--ink);
+    margin:0;
+    max-width:62ch;
+  }
+  .lede a{border-bottom:1px solid rgba(29,58,87,.25);}
+
+  /* ---- publications ---- */
+  .pub-count{
+    font-size:.8rem;
+    color:var(--faint);
+    font-weight:400;
+    letter-spacing:.04em;
+    text-transform:none;
+  }
+  .yeargroup{margin-bottom:2.3rem;}
+  .yeargroup:last-child{margin-bottom:0;}
+  .pub{
+    display:grid;
+    grid-template-columns:3.4rem 1fr;
+    gap:0 1.3rem;
+    padding:1.05rem 0;
+    border-top:1px solid var(--rule);
+  }
+  .pub:first-of-type{border-top:none;}
+  .year{
+    font-size:.82rem;
+    color:var(--faint);
+    font-variant-numeric:tabular-nums;
+    padding-top:.18rem;
+    letter-spacing:.02em;
+  }
+  .pub-body{margin:0;}
+  .authors{color:var(--muted);font-size:.95rem;}
+  .me{color:var(--ink);font-weight:600;}
+  .ptitle{color:var(--ink);display:block;margin:.15rem 0 .2rem;}
+  .venue{font-family:"Newsreader",Georgia,serif;font-style:italic;color:var(--muted);}
+  .pub-meta{
+    display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .85rem;
+    margin-top:.5rem;font-size:.82rem;
+  }
+  .tag{
+    font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--accent);border:1px solid rgba(29,58,87,.3);
+    padding:.1rem .45rem;border-radius:3px;line-height:1.4;
+  }
+  .doi{color:var(--accent-soft);}
+  .doi::before{content:"↗";font-size:.78em;padding-right:.25rem;opacity:.7;}
+
+  /* ---- timeline-style blocks (education, supervision) ---- */
+  .entry{
+    display:grid;
+    grid-template-columns:8.5rem 1fr;
+    gap:0 1.3rem;
+    padding:1rem 0;
+    border-top:1px solid var(--rule);
+  }
+  .entry:first-of-type{border-top:none;}
+  .entry .when{font-size:.85rem;color:var(--faint);font-variant-numeric:tabular-nums;padding-top:.1rem;}
+  .entry .what{margin:0;}
+  .entry .what strong{font-weight:600;}
+  .entry .where{color:var(--muted);font-size:.95rem;display:block;margin-top:.1rem;}
+  .entry .note{color:var(--faint);font-size:.85rem;display:block;margin-top:.15rem;}
+
+  /* ---- honors as clean list ---- */
+  .honors{list-style:none;margin:0;padding:0;}
+  .honors li{
+    padding:.85rem 0;border-top:1px solid var(--rule);
+    display:grid;grid-template-columns:8.5rem 1fr;gap:0 1.3rem;
+  }
+  .honors li:first-child{border-top:none;}
+  .honors .when{font-size:.85rem;color:var(--faint);font-variant-numeric:tabular-nums;}
+
+  footer{
+    margin-top:var(--gap);padding-top:1.4rem;border-top:1px solid var(--rule);
+    font-size:.82rem;color:var(--faint);
+  }
+
+  /* ---- responsive ---- */
+  @media(max-width:560px){
+    .pub{grid-template-columns:1fr;gap:.3rem;}
+    .year{padding-top:0;}
+    .entry,.honors li{grid-template-columns:1fr;gap:.15rem;}
+    .entry .when,.honors .when{order:-1;}
+  }
+
+  /* ---- gentle load reveal ---- */
+  .reveal{opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
+  header.reveal{animation-delay:.02s;}
+  section:nth-of-type(1).reveal{animation-delay:.10s;}
+  section:nth-of-type(2).reveal{animation-delay:.16s;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;animation:none;}
+    a:hover{text-decoration-thickness:1px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="reveal">
+    <h1 class="name">Jianing Lin</h1>
+    <p class="role">PhD candidate in clinical neuroscience, Karolinska Institutet</p>
+    <p class="meta">
+      Department of Clinical Neuroscience, Karolinska Institutet, Stockholm, Sweden
+      <br>
+      <a href="mailto:jianing.lin@ki.se">jianing.lin@ki.se</a>
+      <!-- Add your own links when ready, e.g.:
+      <span class="sep">·</span><a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a>
+      <span class="sep">·</span><a href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+      -->
+    </p>
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#grants">Grants</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#supervision">Supervision</a>
+    </nav>
+  </header>
+
+  <section id="research" class="reveal">
+    <p class="eyebrow">Research</p>
+    <p class="lede">
+      I focus on amyotrophic lateral sclerosis (ALS), from cellular mechanisms to clinical
+      features. My laboratory work examines the non-neuronal contributors to motor neuron
+      degeneration, including microglia-driven neuroinflammation and neurovascular dysfunction
+      involving perivascular fibroblasts and other vascular cells. In parallel, I study the
+      clinical characteristics of ALS, including its genetics, phenotypic heterogeneity, and
+      biomarkers of disease progression. More broadly, I investigate how innate and adaptive
+      immune cells contribute to neuroinflammatory disorders.
+    </p>
+  </section>
+
+  <section id="publications" class="reveal">
+    <p class="eyebrow">Publications <span class="pub-count">— 11 peer-reviewed · 3 first-author</span></p>
+
+    <div class="yeargroup">
+      <div class="pub">
+        <div class="year">2026</div>
+        <p class="pub-body">
+          <span class="authors"><span class="me">Lin J</span>, Liao K, Lewandowski SA.</span>
+          <span class="ptitle">From origins to nomenclature: illuminating the landscape of CNS fibroblasts and fibroblast-like cells.</span>
+          <span class="venue">Acta Neuropathologica Communications</span> 14(1):53.
+          <span class="pub-meta">
+            <span class="tag">First author</span>
+            <a class="doi" href="https://doi.org/10.1186/s40478-026-02236-8">doi.org/10.1186/s40478-026-02236-8</a>
+          </span>
+        </p>
+      </div>
+      <div class="pub">
+        <div class="year">2026</div>
+        <p class="pub-body">
+          <span class="authors">Zhu K, Liu Y, Min JH, Joshua V, <span class="me">Lin J</span>, … Lund H.</span>
+          <span class="ptitle">TGFβ signaling mediates microglial resilience to spatiotemporally restricted myelin degeneration.</span>
+          <span class="venue">Nature Neuroscience</span> 29(3):617–631.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.1038/s41593-025-02161-4">doi.org/10.1038/s41593-025-02161-4</a>
+          </span>
+        </p>
+      </div>
+      <div class="pub">
+        <div class="year">2026</div>
+        <p class="pub-body">
+          <span class="authors">Thomas OG, Rykaczewska U, Galešić M, … <span class="me">Lin J</span>, … Olsson T.</span>
+          <span class="ptitle">Anoctamin-2-specific T cells link Epstein-Barr virus to multiple sclerosis.</span>
+          <span class="venue">Cell</span> 189(2):585–602.e38.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.1016/j.cell.2025.12.032">doi.org/10.1016/j.cell.2025.12.032</a>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="yeargroup">
+      <div class="pub">
+        <div class="year">2022</div>
+        <p class="pub-body">
+          <span class="authors">Lian L, Zheng M, He R, <span class="me">Lin J</span>, Chen W, Pei Z, Yao X.</span>
+          <span class="ptitle">Analysing the influencing factors on caregivers' burden among amyotrophic lateral sclerosis patients in China: a cross-sectional study based on data mining.</span>
+          <span class="venue">BMJ Open</span> 12(9):e066402.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.1136/bmjopen-2022-066402">doi.org/10.1136/bmjopen-2022-066402</a>
+          </span>
+        </p>
+      </div>
+      <div class="pub">
+        <div class="year">2022</div>
+        <p class="pub-body">
+          <span class="authors">Xu F, Huang S, Li XY, <span class="me">Lin J</span>, Feng X, Xie S, Wang Z, Li X, Zhu J, Lai H, Xu Y, Huang X, Yao X, Wang C.</span>
+          <span class="ptitle">Identification of TARDBP Gly298Ser as a founder mutation for amyotrophic lateral sclerosis in Southern China.</span>
+          <span class="venue">BMC Medical Genomics</span> 15(1):173.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.1186/s12920-022-01327-4">doi.org/10.1186/s12920-022-01327-4</a>
+          </span>
+        </p>
+      </div>
+      <div class="pub">
+        <div class="year">2022</div>
+        <p class="pub-body">
+          <span class="authors">Huang S, Zheng M, <span class="me">Lin J</span>, Huang P, Chen W, He R, Yao X.</span>
+          <span class="ptitle">Natural history and remarkable psychiatric state of late-onset amyotrophic lateral sclerosis in China.</span>
+          <span class="venue">Acta Neurologica Scandinavica</span> 146(1):24–33.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.1111/ane.13598">doi.org/10.1111/ane.13598</a>
+          </span>
+        </p>
+      </div>
+      <div class="pub">
+        <div class="year">2022</div>
+        <p class="pub-body">
+          <span class="authors">Yang B, Huang S, Zheng Y, Hou X, <span class="me">Lin J</span>, Peng Y, Du B, Yao X.</span>
+          <span class="ptitle">Fertility does not alter disease progression in ALS patients of childbearing age: a three-centres retrospective analysis in Southern China.</span>
+          <span class="venue">Frontiers in Neurology</span> 13:895321.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.3389/fneur.2022.895321">doi.org/10.3389/fneur.2022.895321</a>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="yeargroup">
+      <div class="pub">
+        <div class="year">2021</div>
+        <p class="pub-body">
+          <span class="authors"><span class="me">Lin J</span>, Chen W, Huang P, Xie Y, Zheng M, Yao X.</span>
+          <span class="ptitle">The distinct manifestation of young-onset amyotrophic lateral sclerosis in China.</span>
+          <span class="venue">Amyotrophic Lateral Sclerosis and Frontotemporal Degeneration</span> 22(1–2):30–37.
+          <span class="pub-meta">
+            <span class="tag">First author</span>
+            <a class="doi" href="https://doi.org/10.1080/21678421.2020.1797091">doi.org/10.1080/21678421.2020.1797091</a>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="yeargroup">
+      <div class="pub">
+        <div class="year">2020</div>
+        <p class="pub-body">
+          <span class="authors"><span class="me">Lin J</span>, Huang P, Chen W, Ye C, Su H, Yao X.</span>
+          <span class="ptitle">Key molecules and pathways underlying sporadic amyotrophic lateral sclerosis: integrated analysis on gene expression profiles of motor neurons.</span>
+          <span class="venue">Frontiers in Genetics</span> 11:578143.
+          <span class="pub-meta">
+            <span class="tag">First author</span>
+            <a class="doi" href="https://doi.org/10.3389/fgene.2020.578143">doi.org/10.3389/fgene.2020.578143</a>
+          </span>
+        </p>
+      </div>
+      <div class="pub">
+        <div class="year">2020</div>
+        <p class="pub-body">
+          <span class="authors">Chen W, Huang P, Zeng H, <span class="me">Lin J</span>, Shi Z, Yao X.</span>
+          <span class="ptitle">Cocaine-induced structural and functional impairments of the glymphatic pathway in mice.</span>
+          <span class="venue">Brain, Behavior, and Immunity</span> 88:97–104.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.1016/j.bbi.2020.04.057">doi.org/10.1016/j.bbi.2020.04.057</a>
+          </span>
+        </p>
+      </div>
+      <div class="pub">
+        <div class="year">2020</div>
+        <p class="pub-body">
+          <span class="authors">Chen W, Xie Y, Zheng M, <span class="me">Lin J</span>, Huang P, Pei Z, Yao X.</span>
+          <span class="ptitle">Clinical and genetic features of patients with amyotrophic lateral sclerosis in southern China.</span>
+          <span class="venue">European Journal of Neurology</span> 27(6):1017–1022.
+          <span class="pub-meta">
+            <a class="doi" href="https://doi.org/10.1111/ene.14213">doi.org/10.1111/ene.14213</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <p class="eyebrow">Education</p>
+    <div class="entry">
+      <div class="when">2022 – present</div>
+      <p class="what">
+        <strong>PhD candidate, Clinical Neuroscience</strong>
+        <span class="where">Karolinska Institutet, Stockholm, Sweden</span>
+        <span class="note">Supervisor: Sebastian Lewandowski</span>
+      </p>
+    </div>
+    <div class="entry">
+      <div class="when">2019 – 2022</div>
+      <p class="what">
+        <strong>Master of Medicine, Neurology</strong>
+        <span class="where">The First Affiliated Hospital, Sun Yat-sen University, Guangzhou, China</span>
+        <span class="note">Supervisor: Xiaoli Yao</span>
+      </p>
+    </div>
+    <div class="entry">
+      <div class="when">2014 – 2019</div>
+      <p class="what">
+        <strong>Bachelor of Medicine, Clinical Medicine</strong>
+        <span class="where">Zhongshan School of Medicine, Sun Yat-sen University, Guangzhou, China</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="grants" class="reveal">
+    <p class="eyebrow">Grants &amp; Funding</p>
+    <ul class="honors">
+      <li><span class="when">2026</span><span>KI Travel Grant, Karolinska Institutet</span></li>
+      <li><span class="when">2025</span><span>KI NeurotechEU Collaborative Award for a research visit</span></li>
+      <li><span class="when">2025</span><span>KI Travel Grant, Karolinska Institutet</span></li>
+      <li><span class="when">2019 – 2021</span><span>First Prize Scholarship for Outstanding Graduate Students, Sun Yat-sen University</span></li>
+    </ul>
+  </section>
+
+  <section id="presentations" class="reveal">
+    <p class="eyebrow">Presentations</p>
+    <ul class="honors">
+      <li><span class="when">2026</span><span>Oral &amp; poster presentation, ENCALS 2026, Spain</span></li>
+      <li><span class="when">Dec 2025</span><span>Poster, 36th International Symposium on ALS/MND, San Diego, USA</span></li>
+      <li><span class="when">2025</span><span>Poster, ENCALS 2025, Italy</span></li>
+      <li><span class="when">2024</span><span>Poster, ENCALS 2024, Stockholm, Sweden <span class="tag">Poster award</span></span></li>
+      <li><span class="when">Jul 2023</span><span>Oral presentation, ENCALS 2023, Barcelona, Spain</span></li>
+    </ul>
+  </section>
+
+  <section id="supervision" class="reveal">
+    <p class="eyebrow">Supervision</p>
+    <div class="entry">
+      <div class="when">2025</div>
+      <p class="what">
+        <strong>Annamari Saarinen</strong>
+        <span class="where">Medical student, Karolinska Institutet — summer project</span>
+      </p>
+    </div>
+    <div class="entry">
+      <div class="when">Sep – Dec 2025</div>
+      <p class="what">
+        <strong>Martyna Kacprzak</strong>
+        <span class="where">Biomedicine programme, Karolinska Institutet</span>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    Jianing Lin · Karolinska Institutet · Last updated June 2026
+  </footer>
+
+</div>
+</body>
+</html>
